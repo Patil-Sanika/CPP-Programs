@@ -1,37 +1,33 @@
-#include<iostream>
-using namespace std;
-#include<conio.h>
-class shape{
-    public:
-    virtual void displayMsg(){
-        cout<<"This is generic shape."<<endl;
+#include <iostream>
+
+// Base class
+class Base {
+public:
+    void baseFunction() {
+        std::cout << "Function of Base class" << std::endl;
     }
 };
-class rectangle : public shape{
-    public:
-    void displayMsg(){
-        cout<<"This is rectangle."<<endl;
+
+// Intermediate class derived from Base class
+class Intermediate : public Base {
+public:
+    void intermediateFunction() {
+        std::cout << "Function of Intermediate class" << std::endl;
     }
 };
-class circle : public shape{
-    public:
-    void displayMsg(){
-        cout<<"This is circle."<<endl;
-    }
 
+// Derived class derived from Intermediate class
+class Derived : public Intermediate {
+public:
+    void derivedFunction() {
+        std::cout << "Function of Derived class" << std::endl;
+    }
 };
 
-int main(){
-    shape S;
-    rectangle R;
-    circle C;
-    shape *sPtr;
-    sPtr=&S;
-    sPtr->displayMsg();
-    sPtr=&R;
-    sPtr->displayMsg();
-    sPtr=&C;
-    sPtr->displayMsg();
-
+int main() {
+    Derived obj;
+    obj.baseFunction();         // Calling function from Base class
+    obj.intermediateFunction(); // Calling function from Intermediate class
+    obj.derivedFunction();      // Calling function from Derived class
     return 0;
 }
