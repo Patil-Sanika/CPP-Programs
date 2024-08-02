@@ -8,7 +8,7 @@ int main(){
     cout<<"Enter an inter:";
     cin>>n;
     if(n%2==0)
-      cout<<n<<" is even";
+      cout<<n<<" zis even";
     else
       cout<<n<<" is odd";
 
